@@ -1,643 +1,699 @@
-# Prefix XOR Pattern — XOR Prefix Notes
+# Tree → Graph Conversion Pattern
 
 ---
 
 # Definition
 
-The **Prefix XOR Pattern** preprocesses cumulative XOR values so that:
+This pattern is used when:
 
 ```text
-Subarray XOR queries
-become efficient
+A Binary Tree needs
+upward movement
+(parent traversal)
+along with
+downward movement
+(children traversal)
 ```
 
-Just like prefix sum,
-
-but using:
+Since a binary tree node does not store:
 
 ```text
-XOR operation
+Parent Pointer
 ```
 
-instead of addition.
+we build it manually.
+
+After building parent links:
+
+```text
+Tree
+→
+Undirected Graph
+```
+
+Then apply:
+
+```text
+BFS
+```
+
+or
+
+```text
+Graph Traversal
+```
 
 ---
 
 # Core Intuition
 
-Store:
+Normal Tree:
 
 ```text
-XOR from index 0 → i
+Parent
+  |
+Child
 ```
 
-Then any subarray XOR can be computed using:
+Movement:
 
 ```text
-Prefix XOR relationships
+Downward Only
 ```
 
----
-
-# MOST IMPORTANT XOR PROPERTY
-
-XOR has a magical cancellation property:
+After Parent Mapping:
 
 ```text
-A ^ A = 0
+Parent <--> Child
 ```
 
-and:
+Movement:
 
 ```text
-A ^ 0 = A
+Up
+Down
 ```
 
-This is the ENTIRE foundation.
-
----
-
-# Prefix XOR Formula
-
-If:
+Tree becomes:
 
 ```text
-prefixXor[i]
-=
-XOR from 0 → i
+Graph
 ```
-
-Then:
-
-```text
-XOR(L → R)
-=
-prefixXor[R]
-^
-prefixXor[L - 1]
-```
-
-Why?
-
-Because common prefixes cancel out.
-
----
-
-# Why This Works
-
-Suppose:
-
-```text
-prefixXor[R]
-=
-a ^ b ^ c ^ d
-```
-
-and:
-
-```text
-prefixXor[L-1]
-=
-a ^ b
-```
-
-Then:
-
-```text
-(a ^ b ^ c ^ d)
-^
-(a ^ b)
-```
-
-Since:
-
-```text
-a ^ a = 0
-b ^ b = 0
-```
-
-Remaining:
-
-```text
-c ^ d
-```
-
-GENIUS cancellation trick.
-
----
-
-# When Should I Think About Prefix XOR?
-
-Use this pattern when:
-
-- subarray XOR
-- XOR equals k
-- cumulative XOR
-- bit manipulation + subarrays
-- XOR range queries
 
 ---
 
 # Recognition Triggers
 
-If problem contains:
+If a Tree Problem contains:
 
-- "XOR subarray"
-- "range XOR"
-- "cumulative XOR"
-- "XOR equals k"
-- "binary xor"
-- bitwise subarray problems
+- Distance K
+- Infection Spread
+- Burn Tree
+- Nearest Node
+- Start from arbitrary node
+- Move upward and downward
+- Parent traversal needed
 
-→ Think:
+Think:
 
 ```text
-Prefix XOR
+Parent Map
++
+BFS
 ```
 
 ---
 
 # Generic Template
 
-## Building Prefix XOR
-
-```java
-int[] prefixXor =
-    new int[n];
-
-prefixXor[0] = arr[0];
-
-for(int i = 1; i < n; i++) {
-
-    prefixXor[i] =
-        prefixXor[i - 1] ^ arr[i];
-}
-```
-
----
-
-## Range XOR Query
-
-```java
-int rangeXor(int L, int R) {
-
-    if(L == 0) {
-        return prefixXor[R];
-    }
-
-    return prefixXor[R]
-           ^ prefixXor[L - 1];
-}
-```
-
----
-
-# MOST IMPORTANT INSIGHT
-
-XOR behaves similarly to:
-
-```text
-Addition + subtraction
-```
-
-because XOR cancels duplicates automatically.
-
-This enables:
-
-```text
-Fast subarray computations
-```
-
----
-
-# Pattern 1 — XOR Queries of a Subarray
-
----
-
-## Trigger
-
-- multiple XOR queries
-- subarray XOR
-- immutable array
-
----
-
-## Problem
-
-LeetCode 1310 — XOR Queries of a Subarray
-
----
-
-# Key Insight
-
-Subarray XOR becomes:
-
-```text
-Prefix XOR cancellation
-```
-
-Exactly like prefix sum subtraction.
-
----
-
-## Solution
-
-```java
-class Solution {
-
-    public int[] xorQueries(
-        int[] arr,
-        int[][] queries
-    ) {
-
-        int n = arr.length;
-
-        int[] prefix =
-            new int[n];
-
-        prefix[0] = arr[0];
-
-        for(int i = 1; i < n; i++) {
-
-            prefix[i] =
-                prefix[i - 1] ^ arr[i];
-        }
-
-        int[] ans =
-            new int[queries.length];
-
-        for(int i = 0; i < queries.length; i++) {
-
-            int L = queries[i][0];
-            int R = queries[i][1];
-
-            if(L == 0) {
-
-                ans[i] = prefix[R];
-            }
-            else {
-
-                ans[i] =
-                    prefix[R]
-                    ^ prefix[L - 1];
-            }
-        }
-
-        return ans;
-    }
-}
-```
-
----
-
-# Complexity
-
-## Preprocessing
-
-```text
-O(n)
-```
-
-## Query Time
-
-```text
-O(1)
-```
-
-## Space Complexity
-
-```text
-O(n)
-```
-
----
-
-# CP-Level Insight
-
-Without prefix XOR:
-
-```text
-Each query scans subarray
-```
-
-Complexity:
-
-```text
-O(n × q)
-```
-
-Prefix XOR reduces queries to:
-
-```text
-O(1)
-```
-
----
-
-# Pattern 2 — Count Subarrays With XOR Equal to K
-
----
-
-## Trigger
-
-- subarray XOR equals k
-- count subarrays
-- XOR target
-
----
-
-## Problem
-
-Classic XOR Prefix Problem
-
----
-
-# Key Insight
-
-Suppose current XOR is:
-
-```text
-currXor
-```
-
-Need:
-
-```text
-Subarray XOR = k
-```
-
-Then:
-
-```text
-previousXor
-=
-currXor ^ k
-```
-
-because:
-
-```text
-A ^ B = C
-⇒
-A = B ^ C
-```
-
-VERY important XOR identity.
-
----
-
-## Solution
-
-```java
-class Solution {
-
-    public int countSubarrays(
-        int[] nums,
-        int k
-    ) {
-
-        HashMap<Integer, Integer> map =
-            new HashMap<>();
-
-        map.put(0, 1);
-
-        int xor = 0;
-        int count = 0;
-
-        for(int num : nums) {
-
-            xor ^= num;
-
-            if(map.containsKey(xor ^ k)) {
-
-                count +=
-                    map.get(xor ^ k);
-            }
-
-            map.put(
-                xor,
-                map.getOrDefault(
-                    xor,
-                    0
-                ) + 1
-            );
-        }
-
-        return count;
-    }
-}
-```
-
----
-
-# Complexity
-
-## Time Complexity
-
-```text
-O(n)
-```
-
-## Space Complexity
-
-```text
-O(n)
-```
-
----
-
-# Dry Run
-
-```text
-nums = [4,2,2,6,4]
-k = 6
-```
-
----
-
 ## Step 1
 
-```text
-xor = 4
-Need:
-4 ^ 6 = 2
-```
+Build Parent Map
 
-Not found.
+```java
+Map<TreeNode, TreeNode> parentMap =
+    new HashMap<>();
 
-Store:
+private void buildParent(
+    TreeNode node,
+    TreeNode parent
+){
 
-```text
-4
+    if(node == null) return;
+
+    parentMap.put(node, parent);
+
+    buildParent(node.left, node);
+    buildParent(node.right, node);
+}
 ```
 
 ---
 
 ## Step 2
 
-```text
-xor = 6
-Need:
-6 ^ 6 = 0
-```
+Run BFS from target node
 
-Found.
+```java
+Queue<TreeNode> queue =
+    new LinkedList<>();
 
-Count becomes:
+Set<TreeNode> visited =
+    new HashSet<>();
 
-```text
-1
-```
-
-Subarray:
-
-```text
-[4,2]
+queue.offer(target);
+visited.add(target);
 ```
 
 ---
 
 ## Step 3
 
-Continue similarly.
+Visit all neighbors
 
----
-
-# SUPER IMPORTANT XOR INSIGHT
-
-For XOR problems:
-
-```text
-Need previousXor
-=
-currXor ^ target
+```java
+left child
+right child
+parent
 ```
 
-This is analogous to:
+```java
+if(node.left != null &&
+   !visited.contains(node.left)){
 
-```text
-currSum - k
+    queue.offer(node.left);
+    visited.add(node.left);
+}
+
+if(node.right != null &&
+   !visited.contains(node.right)){
+
+    queue.offer(node.right);
+    visited.add(node.right);
+}
+
+TreeNode parent =
+    parentMap.get(node);
+
+if(parent != null &&
+   !visited.contains(parent)){
+
+    queue.offer(parent);
+    visited.add(parent);
+}
 ```
 
-in prefix sums.
-
 ---
 
-# Advanced Competitive Programming Insights
+# Why Visited Set?
 
----
-
-# 1. XOR Is Reversible
-
-Unlike addition:
+After Parent Mapping:
 
 ```text
-XOR automatically cancels duplicates
+5 <--> 3
 ```
 
-This makes it PERFECT for prefix patterns.
-
----
-
-# 2. Prefix XOR Mirrors Prefix Sum
-
-| Prefix Sum | Prefix XOR |
-|---|---|
-| subtraction | xor cancellation |
-| currSum - k | currXor ^ k |
-
-Very important analogy.
-
----
-
-# 3. Bit Manipulation + Prefix Pattern
-
-Prefix XOR combines:
+Without visited:
 
 ```text
-Bit manipulation
+5 → 3 → 5 → 3
+```
+
+Infinite loop.
+
+Therefore:
+
+```java
+Set<TreeNode> visited
+```
+
+is mandatory.
+
+---
+
+# Pattern 1 — Distance K From Target Node
+
+---
+
+## Problem
+
+LeetCode 863
+
+All Nodes Distance K in Binary Tree
+
+---
+
+## Trigger
+
+Given:
+
+```text
+Target Node
 +
-HashMap optimization
+Distance K
 ```
 
-Very common in CP.
+Need:
+
+```text
+All nodes exactly K edges away
+```
 
 ---
 
-# 4. XOR Problems Often Hide Prefix Logic
+# Key Insight
 
-Many difficult XOR problems secretly reduce to:
+Distance means:
 
 ```text
-Repeated prefix XOR relationships
+Level Traversal
 ```
 
-Recognizing this is a huge skill.
+Use:
+
+```text
+BFS
+```
+
+Starting from:
+
+```text
+Target Node
+```
 
 ---
 
-# Common Mistake
-
-Students forget:
+# Example
 
 ```text
-XOR is NOT addition
+        3
+       / \
+      5   1
+     / \ / \
+    6  2 0  8
+      / \
+     7   4
 ```
 
-You cannot use:
+Target:
 
 ```text
-currXor - k
+5
 ```
 
-Instead use:
+K:
 
 ```text
-currXor ^ k
+2
 ```
 
-VERY important.
+BFS Levels:
+
+```text
+Level 0 → 5
+
+Level 1 → 6,2,3
+
+Level 2 → 7,4,1
+```
+
+Answer:
+
+```text
+[7,4,1]
+```
+
+---
+
+# Algorithm
+
+```text
+Build Parent Map
+
+Start BFS from Target
+
+Stop when
+distance == K
+
+All nodes currently
+inside queue
+are the answer
+```
+
+---
+
+# Complexity
+
+Time:
+
+```text
+O(N)
+```
+
+Space:
+
+```text
+O(N)
+```
+
+---
+
+# Pattern 2 — Binary Tree Infection
+
+---
+
+## Problem
+
+LeetCode 2385
+
+Amount of Time for Binary Tree to Be Infected
+
+---
+
+## Trigger
+
+Given:
+
+```text
+Start Node
+```
+
+Need:
+
+```text
+Minimum time
+to infect entire tree
+```
+
+---
+
+# Key Insight
+
+Infection spreads:
+
+```text
+Parent
+Child
+```
+
+every minute.
+
+This is exactly:
+
+```text
+Multi-Level BFS
+```
+
+---
+
+# Example
+
+```text
+Minute 0
+
+Target
+```
+
+```text
+Minute 1
+
+All neighbors
+```
+
+```text
+Minute 2
+
+Neighbors of neighbors
+```
+
+Continue until:
+
+```text
+Queue becomes empty
+```
+
+---
+
+# Algorithm
+
+```text
+Build Parent Map
+
+Find Start Node
+
+Run BFS
+
+Count Levels
+
+Levels
+=
+Minutes
+```
+
+---
+
+# Minute Counting Trick
+
+```java
+int minute = -1;
+
+while(!queue.isEmpty()){
+
+    int size = queue.size();
+
+    for(int i = 0;
+        i < size;
+        i++){
+
+        ...
+    }
+
+    minute++;
+}
+```
+
+---
+
+# Complexity
+
+Time:
+
+```text
+O(N)
+```
+
+Space:
+
+```text
+O(N)
+```
+
+---
+
+# Pattern 3 — Burn Binary Tree
+
+---
+
+## Problem
+
+Burning Tree
+
+(Common Interview Question)
+
+---
+
+## Trigger
+
+Given:
+
+```text
+Target Node
+```
+
+Fire starts from:
+
+```text
+Target
+```
+
+Need:
+
+```text
+Time required
+to burn whole tree
+```
+
+---
+
+# Observation
+
+Fire spreads exactly like:
+
+```text
+Infection
+```
+
+to:
+
+```text
+Left Child
+Right Child
+Parent
+```
+
+every second.
+
+---
+
+# Key Insight
+
+Burning Tree and Infection Tree are:
+
+```text
+Same Problem
+```
+
+Only wording changes.
+
+---
+
+# Algorithm
+
+```text
+Build Parent Map
+
+Find Target
+
+Run BFS
+
+Count Levels
+
+Answer
+=
+Total Levels - 1
+```
+
+---
+
+# Complexity
+
+Time:
+
+```text
+O(N)
+```
+
+Space:
+
+```text
+O(N)
+```
+
+---
+
+# Pattern Recognition Summary
+
+If Tree Problem Contains:
+
+```text
+Distance K
+```
+
+Think:
+
+```text
+Parent Map
++
+BFS
+```
+
+---
+
+If Tree Problem Contains:
+
+```text
+Infection Spread
+```
+
+Think:
+
+```text
+Parent Map
++
+Level BFS
+```
+
+---
+
+If Tree Problem Contains:
+
+```text
+Burn Tree
+```
+
+Think:
+
+```text
+Parent Map
++
+Level BFS
+```
+
+---
+
+# Common Mistakes
+
+## Mistake 1
+
+Forgetting Parent Mapping
+
+Result:
+
+```text
+Cannot move upward
+```
+
+---
+
+## Mistake 2
+
+Forgetting Visited Set
+
+Result:
+
+```text
+Infinite Loop
+```
+
+---
+
+## Mistake 3
+
+Wrong Minute Count
+
+Returning:
+
+```text
+levels
+```
+
+instead of:
+
+```text
+levels - 1
+```
+
+Use:
+
+```java
+int minute = -1;
+```
 
 ---
 
 # One-Line Memory Trick
 
 ```text
-Prefix XOR works because
-equal XOR parts cancel out.
+Whenever a Tree needs
+upward traversal,
+
+convert it into a graph
+using Parent Mapping
+and solve with BFS.
 ```
 
 ---
 
-# Final Interview Insight
+# Pattern Family
 
-The REAL power of prefix XOR is:
+Tree → Graph Conversion
 
-```text
-Using XOR cancellation
-to isolate subarray values
-```
+├── LC 863 Distance K
 
-Instead of recalculating:
+├── LC 2385 Infection Tree
 
-```text
-Entire subarrays
-```
+├── Burn Binary Tree
 
-we mathematically eliminate:
+├── Nearest Node Problems
 
-```text
-Common prefixes
-```
-
-This transforms many:
-
-```text
-O(n²)
-```
-
-solutions into:
-
-```text
-O(n)
-```
+└── Future Parent Traversal Problems

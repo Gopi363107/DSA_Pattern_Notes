@@ -1,6 +1,26 @@
-# 🚀 DSA Problem Solving Cheat Sheet
+#  DSA Problem Solving Cheat Sheet
 # When to Use Which Data Structure + TC & SC
+---
 
+#  QUICK INTERVIEW DECISION TABLE
+
+| If You See | Use |
+|------------|------|
+| Frequency Count | HashMap |
+| Unique Elements | HashSet |
+| Nearest Greater/Smaller | Stack |
+| Level Order | Queue |
+| Sliding Window Maximum | Deque |
+| Top K | Heap |
+| Sorted Search | Binary Search |
+| Prefix Search | Trie |
+| Parent Child | Tree |
+| Network Connections | Graph |
+| Connectivity | DSU |
+| Range Sum Query | Prefix Sum |
+| Fast Insert/Delete | Linked List |
+| Ordered Keys | TreeMap |
+| Ordered Unique Values | TreeSet |
 Always ask:
 
 1. Need fast lookup? → HashMap/HashSet
@@ -16,7 +36,7 @@ Always ask:
 
 ---
 
-# 🎯 STEP 1: Identify the Problem Type
+#  STEP 1: Identify the Problem Type
 
 Before coding, ask:
 
@@ -33,7 +53,7 @@ The answer usually reveals the data structure.
 
 ---
 
-# 📦 ARRAY
+#  ARRAY
 
 ## Use When
 
@@ -71,7 +91,7 @@ O(n)
 
 ---
 
-# 🔤 STRING
+#  STRING
 
 ## Use When
 
@@ -105,7 +125,7 @@ Think String + HashMap/Sliding Window
 
 ---
 
-# 🧾 HASHMAP
+#  HASHMAP
 
 ## Use When
 
@@ -153,7 +173,7 @@ O(n)
 
 ---
 
-# 🎯 HASHSET
+#  HASHSET
 
 ## Use When
 
@@ -189,7 +209,7 @@ O(n)
 
 ---
 
-# 📚 STACK
+#  STACK
 
 ## Use When
 
@@ -232,7 +252,7 @@ O(n)
 
 ---
 
-# 🚶 QUEUE
+#  QUEUE
 
 ## Use When
 
@@ -270,7 +290,7 @@ O(n)
 
 ---
 
-# 🔥 DEQUE
+#  DEQUE
 
 ## Use When
 
@@ -306,7 +326,7 @@ O(n)
 
 ---
 
-# ⚡ PRIORITY QUEUE (HEAP)
+#  PRIORITY QUEUE (HEAP)
 
 ## Use When
 
@@ -347,7 +367,7 @@ O(n)
 
 ---
 
-# 🌳 TREE
+#  TREE
 
 ## Use When
 
@@ -391,7 +411,7 @@ h = tree height
 
 ---
 
-# 🔍 BST
+#  BST
 
 ## Use When
 
@@ -415,7 +435,7 @@ O(n)
 
 ---
 
-# 🌐 GRAPH
+#  GRAPH
 
 ## Use When
 
@@ -454,7 +474,7 @@ SC = O(V)
 
 ---
 
-# ⚡ TRIE
+#  TRIE
 
 ## Use When
 
@@ -490,7 +510,7 @@ L = word length
 
 ---
 
-# 🔗 LINKED LIST
+#  LINKED LIST
 
 ## Use When
 
@@ -522,7 +542,7 @@ Merge Two Lists
 
 ---
 
-# 📊 PREFIX SUM
+#  PREFIX SUM
 
 ## Use When
 
@@ -557,7 +577,7 @@ O(n)
 
 ---
 
-# ⚡ BINARY SEARCH
+#  BINARY SEARCH
 
 ## Use When
 
@@ -584,7 +604,7 @@ SC = O(1)
 
 ---
 
-# 🔥 UNION FIND (DSU)
+#  UNION FIND (DSU)
 
 ## Use When
 
@@ -608,28 +628,6 @@ O(α(n))
 Space
 
 O(n)
-
----
-
-# 🎯 QUICK INTERVIEW DECISION TABLE
-
-| If You See | Use |
-|------------|------|
-| Frequency Count | HashMap |
-| Unique Elements | HashSet |
-| Nearest Greater/Smaller | Stack |
-| Level Order | Queue |
-| Sliding Window Maximum | Deque |
-| Top K | Heap |
-| Sorted Search | Binary Search |
-| Prefix Search | Trie |
-| Parent Child | Tree |
-| Network Connections | Graph |
-| Connectivity | DSU |
-| Range Sum Query | Prefix Sum |
-| Fast Insert/Delete | Linked List |
-| Ordered Keys | TreeMap |
-| Ordered Unique Values | TreeSet |
 
 ---
 

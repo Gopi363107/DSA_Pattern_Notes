@@ -1,10 +1,10 @@
-# 🧠 How to Study DSA Problems for Interviews (MNC Level Strategy)
+#  How to Study DSA Problems for Interviews (MNC Level Strategy)
 
 This guide explains how to study every DSA problem in a structured way so that it helps in real interviews (Google, Amazon, Microsoft, etc.).
 
 ---
 
-# 🚀 1. First Attempt (Struggle Phase)
+#  1. First Attempt (Struggle Phase)
 
 Before looking at any solution:
 
@@ -14,11 +14,11 @@ Before looking at any solution:
   - What is the simplest way to solve this?
   - Can I check all possibilities?
 
-👉 Even brute force thinking is important in interviews.
+ Even brute force thinking is important in interviews.
 
 ---
 
-# 🔍 2. Pattern Identification (Most Important Step)
+#  2. Pattern Identification (Most Important Step)
 
 After struggling, identify the pattern:
 
@@ -43,7 +43,7 @@ Then map it to a known pattern:
 
 ---
 
-# ⚙️ 3. Understand the Optimal Approach
+#  3. Understand the Optimal Approach
 
 Do NOT just read the solution.
 
@@ -59,11 +59,11 @@ You must understand:
 - HashMap → frequency or indexing
 - Deque → maintains useful window elements
 
-👉 If you cannot explain WHY, you don’t understand the solution.
+ If you cannot explain WHY, you don’t understand the solution.
 
 ---
 
-# 🧪 4. Dry Run (Mandatory Step)
+#  4. Dry Run (Mandatory Step)
 
 Take a small input and simulate step by step:
 
@@ -71,11 +71,11 @@ Take a small input and simulate step by step:
 - Write each state change
 - Observe how answer evolves
 
-👉 This builds real understanding.
+ This builds real understanding.
 
 ---
 
-# ✍️ 5. Re-code Without Help
+#  5. Re-code Without Help
 
 After understanding:
 
@@ -83,11 +83,11 @@ After understanding:
 - Try coding again from scratch
 - If stuck → go back to logic, not code
 
-👉 Goal: 100% independent implementation
+ Goal: 100% independent implementation
 
 ---
 
-# 🔁 6. Spaced Revision Rule
+#  6. Spaced Revision Rule
 
 Revise the same problem:
 
@@ -101,7 +101,7 @@ If yes → it's learned properly.
 
 ---
 
-# 🧩 7. Interview Translation Format
+#  7. Interview Translation Format
 
 For every problem, you should be able to explain:
 
@@ -111,11 +111,11 @@ For every problem, you should be able to explain:
 - Time & space complexity
 - Edge cases
 
-👉 This is exactly what interviewers evaluate.
+ This is exactly what interviewers evaluate.
 
 ---
 
-# 🚀 Example Thinking Flow
+#  Example Thinking Flow
 
 ### Problem: Longest Substring Without Repeating Characters
 
@@ -129,7 +129,7 @@ You should think:
 
 ---
 
-# 🔥 Key Insight (Most Important)
+#  Key Insight (Most Important)
 
 It is NOT about solving 500 problems.
 
@@ -140,7 +140,7 @@ It is about:
 
 ---
 
-# 🎯 Final Goal
+#  Final Goal
 
 After practice, you should be able to:
 

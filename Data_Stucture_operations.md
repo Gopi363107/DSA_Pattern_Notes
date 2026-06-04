@@ -1,8 +1,8 @@
-# 🚀 Java Data Structures Complete Operations Cheat Sheet
+#  Java Data Structures Complete Operations Cheat Sheet
 
 ---
 
-# 📦 1. Array
+#  1. Array
 
 ## Creation
 
@@ -36,7 +36,7 @@ String str = Arrays.toString(arr);
 
 ---
 
-# 📋 2. ArrayList
+#  2. ArrayList
 
 ## Creation
 
@@ -84,7 +84,7 @@ Collections.min(list);
 
 ---
 
-# 🔤 3. String
+#  3. String
 
 ## Creation
 
@@ -134,7 +134,7 @@ String.join("-", "a","b","c");
 
 ---
 
-# 🔨 4. StringBuilder
+#  4. StringBuilder
 
 ## Creation
 
@@ -170,7 +170,7 @@ sb.toString();
 
 ---
 
-# 🧾 5. HashMap
+#  5. HashMap
 
 ## Creation
 
@@ -230,7 +230,7 @@ for(Map.Entry<Integer,String> entry : map.entrySet()){
 
 ---
 
-# 🎯 6. HashSet
+#  6. HashSet
 
 ## Creation
 
@@ -266,7 +266,7 @@ for(int num : set){
 
 ---
 
-# 🌲 7. TreeSet
+#  7. TreeSet
 
 ## Creation
 
@@ -304,7 +304,7 @@ set.size();
 
 ---
 
-# 📚 8. Stack
+#  8. Stack
 
 ## Creation
 
@@ -330,7 +330,7 @@ stack.search(10);
 
 ---
 
-# 🚶 9. Queue
+#  9. Queue
 
 ## Creation
 
@@ -356,7 +356,7 @@ q.isEmpty();
 
 ---
 
-# 🔥 10. Deque
+#  10. Deque
 
 ## Creation
 
@@ -386,7 +386,7 @@ dq.isEmpty();
 
 ---
 
-# ⚡ 11. Priority Queue (Heap)
+#  11. Priority Queue (Heap)
 
 ## Min Heap
 
@@ -421,7 +421,7 @@ pq.isEmpty();
 
 ---
 
-# 🔗 12. LinkedList
+#  12. LinkedList
 
 ## Creation
 
@@ -453,7 +453,7 @@ list.isEmpty();
 
 ---
 
-# 🌳 13. TreeMap
+#  13. TreeMap
 
 ## Creation
 
@@ -487,7 +487,7 @@ map.size();
 
 ---
 
-# 🌐 14. Graph (Adjacency List)
+#  14. Graph (Adjacency List)
 
 ## Creation
 
@@ -519,7 +519,7 @@ for(int neigh : graph.get(node)){
 
 ---
 
-# 🌳 15. Binary Tree Node
+#  15. Binary Tree Node
 
 ## Creation
 
@@ -547,7 +547,7 @@ root.right = new TreeNode(3);
 
 ---
 
-# ⚡ 16. Trie
+#  16. Trie
 
 ## Node
 
@@ -566,7 +566,7 @@ TrieNode root = new TrieNode();
 
 ---
 
-# 📊 17. Prefix Sum
+#  17. Prefix Sum
 
 ## Creation
 
@@ -589,7 +589,7 @@ int sum = prefix[r] -
 
 ---
 
-# 🎯 18. Arrays Utility Methods
+#  18. Arrays Utility Methods
 
 ```java
 Arrays.sort(arr);
@@ -607,7 +607,7 @@ Arrays.toString(arr);
 
 ---
 
-# 🎯 19. Collections Utility Methods
+#  19. Collections Utility Methods
 
 ```java
 Collections.sort(list);
@@ -627,7 +627,7 @@ Collections.swap(list,0,1);
 
 ---
 
-# 🚀 Most Important Interview Operations
+#  Most Important Interview Operations
 
 ```java
 ArrayList:

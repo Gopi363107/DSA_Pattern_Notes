@@ -1,3 +1,9 @@
+Time	            Activity	                       Outcome
+60 min	Active revision of previous patterns	Improves retention and recall
+60 min	Learn one DP pattern deeply	            Builds conceptual understanding
+60 min	Solve 1–2 carefully chosen problems	    Develops implementation skills
+60 min	Analyze mistakes, identify pattern, update notes, and re-code without looking	Builds interview-level problem-solving ability
+
 #  Data Structures and Their Purpose (MNC Interview Focus)
 
 This document lists only the essential data structures and why they are used in coding interviews.

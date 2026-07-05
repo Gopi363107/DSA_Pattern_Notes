@@ -1,0 +1,480 @@
+# 06 - Interval Dynamic Programming Problems
+
+> **Goal:** Master every important Interval DP pattern asked in Top MNCs, FinTech companies, coding interviews, and competitive programming.
+
+---
+
+# Learning Order
+
+Do **NOT** solve these problems randomly.
+
+Follow this progression.
+
+```
+Basic Interval DP
+        ↓
+Split DP
+        ↓
+Palindrome Interval DP
+        ↓
+Merge / Cut Problems
+        ↓
+Last Operation DP
+        ↓
+Advanced Interval DP
+```
+
+---
+
+# Interval DP Family Tree
+
+```
+                  Interval DP
+                       │
+      ┌────────────────┼────────────────┐
+      │                │                │
+   Split DP      Last Operation    Palindrome DP
+      │                │                │
+ Matrix Chain     Burst Balloons   Strange Printer
+      │                │                │
+ Merge Stones     Remove Boxes     Palindrome Partitioning
+```
+
+---
+
+# Level 1 — Foundation (Must Solve)
+
+Learn the basic interval DP idea.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 1 | Matrix Chain Multiplication | GFG | Medium | Classic Split DP |
+| 2 | Burst Balloons | LeetCode 312 | Hard | Last Operation |
+| 3 | Minimum Cost to Cut a Stick | LeetCode 1547 | Hard | Split DP |
+| 4 | Palindrome Partitioning II | LeetCode 132 | Hard | Interval + Partition |
+
+---
+
+# Level 2 — Merge Problems
+
+Merge intervals optimally.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 5 | Minimum Cost to Merge Stones | LeetCode 1000 | Hard | Merge DP |
+| 6 | Merge Slimes | AtCoder DP N | Hard | Classic Interval DP |
+| 7 | Optimal Binary Search Tree | GFG | Hard | Interval Cost |
+
+---
+
+# Level 3 — Last Operation DP
+
+Solve by choosing the last operation.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 8 | Burst Balloons | LeetCode 312 | Hard | Last Burst |
+| 9 | Remove Boxes | LeetCode 546 | Hard | Extended Interval DP |
+| 10 | Strange Printer | LeetCode 664 | Hard | Printing DP |
+
+---
+
+# Level 4 — Palindrome Interval DP
+
+Work on substrings.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 11 | Palindrome Partitioning II | LeetCode 132 | Hard | Min Cuts |
+| 12 | Longest Palindromic Substring | LeetCode 5 | Medium | Interval Expansion |
+| 13 | Count Different Palindromic Subsequences | LeetCode 730 | Hard | Interval Counting |
+
+---
+
+# Level 5 — Parenthesization DP
+
+Split expressions optimally.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 14 | Boolean Parenthesization | GFG | Hard | Expression DP |
+| 15 | Different Ways to Add Parentheses | LeetCode 241 | Medium | Divide & Conquer + Memoization |
+| 16 | Expression Add Operators* | LeetCode 282 | Hard | Backtracking (Related) |
+
+> **Note:** LeetCode 282 is primarily a backtracking problem but develops similar expression-partition intuition.
+
+---
+
+# Level 6 — Advanced Interval DP
+
+Frequently asked in top product companies.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 17 | Stone Game V | LeetCode 1563 | Hard | Interval Optimization |
+| 18 | Stone Game VII | LeetCode 1690 | Medium | Interval Game DP |
+| 19 | Stone Game VIII | LeetCode 1872 | Hard | Prefix + Interval DP |
+| 20 | Guess Number Higher or Lower II | LeetCode 375 | Medium | Minimax Interval DP |
+
+---
+
+# Company Favorites
+
+## Amazon
+
+- 312
+- 1547
+- 132
+- 375
+
+---
+
+## Google
+
+- 546
+- 664
+- 1000
+- 1563
+
+---
+
+## Microsoft
+
+- 312
+- 132
+- 375
+
+---
+
+## Meta
+
+- 312
+- 241
+- 664
+
+---
+
+## Apple
+
+- 132
+- 312
+- 1690
+
+---
+
+## Uber
+
+- 1000
+- 546
+- 1563
+
+---
+
+## FinTech Companies
+
+Most frequently asked:
+
+- 312
+- 132
+- 375
+- 1547
+
+---
+
+# Recommended Solving Order (20 Problems)
+
+## Week 1 — Fundamentals
+
+- [ ] GFG Matrix Chain Multiplication
+- [ ] LeetCode 312 Burst Balloons
+- [ ] LeetCode 1547 Minimum Cost to Cut a Stick
+- [ ] LeetCode 132 Palindrome Partitioning II
+
+---
+
+## Week 2 — Merge & Palindrome
+
+- [ ] LeetCode 1000 Merge Stones
+- [ ] AtCoder Merge Slimes
+- [ ] LeetCode 5 Longest Palindromic Substring
+- [ ] LeetCode 730 Count Different Palindromic Subsequences
+- [ ] GFG Optimal Binary Search Tree
+
+---
+
+## Week 3 — Advanced Interval DP
+
+- [ ] LeetCode 664 Strange Printer
+- [ ] LeetCode 546 Remove Boxes
+- [ ] GFG Boolean Parenthesization
+- [ ] LeetCode 241 Different Ways to Add Parentheses
+- [ ] LeetCode 375 Guess Number Higher or Lower II
+
+---
+
+## Week 4 — Expert
+
+- [ ] LeetCode 1563 Stone Game V
+- [ ] LeetCode 1690 Stone Game VII
+- [ ] LeetCode 1872 Stone Game VIII
+
+---
+
+# Pattern Recognition Cheat Sheet
+
+| If the question says... | Think... |
+|--------------------------|----------|
+| Subarray | Interval DP |
+| Substring | Interval DP |
+| Merge | Split DP |
+| Burst | Last Operation DP |
+| Remove | Last Operation DP |
+| Cut | Split DP |
+| Parenthesize | Split DP |
+| Palindrome | Interval DP |
+| Expression | Partition DP |
+
+---
+
+# Standard State Definitions
+
+## Split DP
+
+```
+dp[i][j]
+```
+
+Meaning:
+
+```
+Best answer
+
+for interval
+
+[i...j]
+```
+
+---
+
+## Last Operation DP
+
+```
+dp[i][j]
+```
+
+Meaning:
+
+```
+Best answer
+
+assuming interval
+
+[i...j]
+```
+
+---
+
+## Palindrome DP
+
+```
+dp[i][j]
+```
+
+Meaning:
+
+```
+Answer
+
+for substring
+
+i...j
+```
+
+---
+
+# Common Transitions
+
+## Split DP
+
+```
+for every k
+
+between
+
+i
+
+and
+
+j
+
+dp[i][j]
+
+=
+
+best(
+
+dp[i][k]
+
++
+
+dp[k+1][j]
+
++
+
+cost
+)
+```
+
+---
+
+## Last Operation DP
+
+Choose every
+
+```
+k
+```
+
+as the last operation.
+
+---
+
+## Palindrome DP
+
+```
+If characters match
+
+↓
+
+Shrink interval
+
+Else
+
+↓
+
+Split
+```
+
+---
+
+# Traversal Order
+
+Always compute
+
+```
+Length = 1
+
+↓
+
+Length = 2
+
+↓
+
+Length = 3
+
+↓
+
+...
+
+↓
+
+Length = n
+```
+
+Never compute random intervals.
+
+---
+
+# Time Complexity Guide
+
+| Problem | Complexity |
+|----------|-----------|
+| Matrix Chain Multiplication | `O(n³)` |
+| Burst Balloons | `O(n³)` |
+| Merge Stones | `O(n³)` |
+| Strange Printer | `O(n³)` |
+| Remove Boxes | `O(n⁴)` |
+| Guess Number II | `O(n³)` |
+
+---
+
+# Interview Tips
+
+Whenever you see a substring or subarray, ask:
+
+1. Is the answer defined for an interval?
+2. Can I split the interval into smaller intervals?
+3. Should I instead choose the last operation?
+4. What is my interval state `dp[i][j]`?
+5. Should I iterate by increasing interval length?
+
+---
+
+# Mastery Checklist
+
+## Beginner
+
+- [ ] Solve Matrix Chain Multiplication.
+- [ ] Understand interval states.
+- [ ] Learn interval-length traversal.
+
+---
+
+## Intermediate
+
+- [ ] Solve Burst Balloons.
+- [ ] Solve Minimum Cost to Cut a Stick.
+- [ ] Solve Palindrome Partitioning II.
+
+---
+
+## Advanced
+
+- [ ] Solve Merge Stones.
+- [ ] Solve Remove Boxes.
+- [ ] Solve Strange Printer.
+- [ ] Recognize Split DP vs Last Operation DP immediately.
+
+---
+
+# Common Transformations
+
+Many difficult problems become Interval DP after identifying the interval.
+
+```
+Matrix Multiplication
+        ↓
+Split DP
+
+Burst Balloons
+        ↓
+Last Operation
+
+Merge Stones
+        ↓
+Split DP
+
+Cut Stick
+        ↓
+Split DP
+
+Palindrome Partition
+        ↓
+Substring DP
+
+Boolean Parenthesization
+        ↓
+Expression Split DP
+```
+
+---
+
+# Final Goal
+
+After completing this roadmap, you should be able to:
+
+- Instantly recognize Interval DP problems.
+- Decide whether the solution requires **Split DP** or **Last Operation DP**.
+- Correctly define interval states and transitions.
+- Traverse intervals in the proper order.
+- Confidently solve advanced Interval DP questions asked in Top MNCs, FinTech companies, and coding interviews.

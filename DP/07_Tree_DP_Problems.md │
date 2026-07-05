@@ -1,0 +1,517 @@
+# 07 - Tree Dynamic Programming Problems
+
+> **Goal:** Master every important Tree DP pattern asked in Top MNCs, FinTech companies, coding interviews, and competitive programming.
+
+---
+
+# Learning Order
+
+Do **NOT** solve these randomly.
+
+Follow this order.
+
+```
+Basic Tree DP
+      ↓
+Subtree DP
+      ↓
+Include / Exclude DP
+      ↓
+Path DP
+      ↓
+Rerooting DP
+      ↓
+Advanced Tree DP
+```
+
+---
+
+# Tree DP Family Tree
+
+```
+                     Tree DP
+                        │
+      ┌─────────────────┼─────────────────┐
+      │                 │                 │
+  Subtree DP      Include/Exclude     Path DP
+      │                 │                 │
+ Subtree Sum      House Robber III   Diameter
+      │                 │                 │
+ Height DP       Independent Set    Max Path
+                        │
+                Rerooting DP
+```
+
+---
+
+# Level 1 — Foundation (Must Solve)
+
+These problems introduce Tree DP.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 1 | Diameter of Binary Tree | LeetCode 543 | Easy | Height DP |
+| 2 | Binary Tree Maximum Path Sum | LeetCode 124 | Hard | Path DP |
+| 3 | House Robber III | LeetCode 337 | Medium | Include / Exclude |
+| 4 | Sum of Left Leaves | LeetCode 404 | Easy | Simple Tree DP |
+
+---
+
+# Level 2 — Subtree DP
+
+Compute answers for every subtree.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 5 | Count Good Nodes in Binary Tree | LeetCode 1448 | Medium | Root-to-Node DP |
+| 6 | Binary Tree Cameras | LeetCode 968 | Hard | Multi-State DP |
+| 7 | Maximum Difference Between Node and Ancestor | LeetCode 1026 | Medium | Ancestor DP |
+
+---
+
+# Level 3 — Include / Exclude DP
+
+Classic Tree DP.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 8 | House Robber III | LeetCode 337 | Medium | Independent Set |
+| 9 | Maximum Sum BST in Binary Tree | LeetCode 1373 | Hard | Multi-State Tree DP |
+| 10 | Distribute Coins in Binary Tree | LeetCode 979 | Medium | Subtree Balance |
+
+---
+
+# Level 4 — Path DP
+
+Answers involving paths.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 11 | Diameter of Binary Tree | LeetCode 543 | Easy | Longest Path |
+| 12 | Longest Univalue Path | LeetCode 687 | Medium | Path DP |
+| 13 | Binary Tree Maximum Path Sum | LeetCode 124 | Hard | Path Merge |
+
+---
+
+# Level 5 — Rerooting DP
+
+Very common in Competitive Programming.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 14 | Sum of Distances in Tree | LeetCode 834 | Hard | Rerooting DP |
+| 15 | Tree Distances I | CSES | Hard | Rerooting DP |
+| 16 | Tree Distances II | CSES | Hard | Rerooting DP |
+
+---
+
+# Level 6 — Advanced Tree DP
+
+Frequently asked in top product companies.
+
+| # | Problem | Platform | Difficulty | Pattern |
+|---|---------|----------|------------|----------|
+| 17 | Minimum Edge Reversals So Every Node Is Reachable | LeetCode 2858 | Hard | Rerooting |
+| 18 | Maximum Score After Applying Operations on a Tree | LeetCode 2925 | Hard | Tree DP |
+| 19 | Count Valid Paths in a Tree | LeetCode 2867 | Hard | Tree + Number Theory |
+| 20 | Minimum Time to Collect All Apples | LeetCode 1443 | Medium | Subtree DP |
+
+---
+
+# Company Favorites
+
+## Amazon
+
+- 543
+- 337
+- 124
+- 979
+
+---
+
+## Google
+
+- 968
+- 834
+- 1373
+- 2925
+
+---
+
+## Microsoft
+
+- 543
+- 124
+- 337
+
+---
+
+## Meta
+
+- 124
+- 543
+- 687
+
+---
+
+## Apple
+
+- 337
+- 834
+- 1443
+
+---
+
+## Uber
+
+- 834
+- 968
+- 2858
+
+---
+
+## FinTech Companies
+
+Most frequently asked
+
+- 543
+- 337
+- 124
+- 687
+- 979
+
+---
+
+# Recommended Solving Order (20 Problems)
+
+## Week 1 — Fundamentals
+
+- [ ] LeetCode 543 Diameter of Binary Tree
+- [ ] LeetCode 124 Maximum Path Sum
+- [ ] LeetCode 337 House Robber III
+- [ ] LeetCode 404 Sum of Left Leaves
+
+---
+
+## Week 2 — Subtree DP
+
+- [ ] LeetCode 1448 Good Nodes
+- [ ] LeetCode 1026 Maximum Ancestor Difference
+- [ ] LeetCode 968 Binary Tree Cameras
+- [ ] LeetCode 979 Distribute Coins
+
+---
+
+## Week 3 — Path DP
+
+- [ ] LeetCode 687 Longest Univalue Path
+- [ ] LeetCode 1373 Maximum Sum BST
+- [ ] LeetCode 1443 Minimum Time to Collect Apples
+
+---
+
+## Week 4 — Rerooting DP
+
+- [ ] LeetCode 834 Sum of Distances in Tree
+- [ ] CSES Tree Distances I
+- [ ] CSES Tree Distances II
+- [ ] LeetCode 2858 Minimum Edge Reversals
+- [ ] LeetCode 2925 Maximum Score After Operations
+
+---
+
+# Pattern Recognition Cheat Sheet
+
+| If the question says... | Think... |
+|--------------------------|----------|
+| Binary Tree | Tree DP |
+| Rooted Tree | Tree DP |
+| Subtree | Subtree DP |
+| Choose / Skip Node | Include / Exclude |
+| Longest Path | Path DP |
+| Diameter | Height DP |
+| Distance from every node | Rerooting DP |
+| Independent Set | Include / Exclude |
+| Ancestors | DFS State DP |
+
+---
+
+# Standard State Definitions
+
+## Single State
+
+```
+dp[node]
+```
+
+Meaning
+
+```
+Best answer
+
+for subtree
+
+rooted at node
+```
+
+---
+
+## Two-State DP
+
+```
+dp[node][0]
+
+dp[node][1]
+```
+
+Meaning
+
+```
+Not Choose
+
+Choose
+```
+
+---
+
+## Height DP
+
+```
+dfs(node)
+
+returns
+
+height
+```
+
+---
+
+## Path DP
+
+```
+dfs(node)
+
+returns
+
+maximum gain
+```
+
+Global variable stores
+
+```
+maximum answer
+```
+
+---
+
+# Common Transitions
+
+## Include / Exclude
+
+```
+Take Node
+
+↓
+
+Skip Children
+```
+
+```
+Skip Node
+
+↓
+
+Take Best
+
+from Children
+```
+
+---
+
+## Height DP
+
+```
+height
+
+=
+
+1
+
++
+
+max(
+
+left,
+
+right
+
+)
+```
+
+---
+
+## Diameter
+
+```
+Answer
+
+=
+
+left
+
++
+
+right
+```
+
+---
+
+## Maximum Path
+
+```
+Current
+
+=
+
+node
+
++
+
+left
+
++
+
+right
+```
+
+Return
+
+```
+node
+
++
+
+max(
+
+left,
+
+right
+
+)
+```
+
+---
+
+# Time Complexity Guide
+
+| Pattern | Complexity |
+|----------|-----------|
+| DFS Tree DP | `O(N)` |
+| Diameter | `O(N)` |
+| House Robber III | `O(N)` |
+| Binary Tree Cameras | `O(N)` |
+| Rerooting DP | `O(N)` |
+
+---
+
+# Interview Tips
+
+Whenever you see a tree, ask:
+
+1. Can each node compute its answer from its children?
+2. What should my DFS return?
+3. Do I need one state or multiple states?
+4. Is there a global answer?
+5. Do I need rerooting?
+
+---
+
+# Mastery Checklist
+
+## Beginner
+
+- [ ] Solve Diameter of Binary Tree.
+- [ ] Understand DFS + Postorder.
+- [ ] Learn subtree DP.
+
+---
+
+## Intermediate
+
+- [ ] Solve House Robber III.
+- [ ] Solve Maximum Path Sum.
+- [ ] Solve Binary Tree Cameras.
+
+---
+
+## Advanced
+
+- [ ] Learn rerooting DP.
+- [ ] Solve Sum of Distances in Tree.
+- [ ] Solve multi-state Tree DP.
+- [ ] Recognize Tree DP immediately.
+
+---
+
+# Common Transformations
+
+Many difficult tree problems reduce to one of these patterns.
+
+```
+Maximum Path
+        ↓
+Path DP
+
+Choose / Skip
+        ↓
+Include / Exclude DP
+
+Distance from Every Node
+        ↓
+Rerooting DP
+
+Subtree Answer
+        ↓
+Subtree DP
+
+Height
+        ↓
+Height DP
+```
+
+---
+
+# Final Goal
+
+After completing this roadmap, you should be able to:
+
+- Instantly recognize Tree DP problems.
+- Design the correct DP state for each node.
+- Use DFS and postorder traversal naturally.
+- Apply include/exclude, subtree, path, and rerooting techniques.
+- Confidently solve Tree DP questions commonly asked in Top MNCs, FinTech companies, and competitive programming.
+
+---
+
+# Ultimate Tree DP Roadmap
+
+```
+543  → Diameter
+        ↓
+124  → Maximum Path Sum
+        ↓
+337  → House Robber III
+        ↓
+968  → Binary Tree Cameras
+        ↓
+979  → Distribute Coins
+        ↓
+1373 → Maximum Sum BST
+        ↓
+834  → Sum of Distances in Tree
+        ↓
+2858 → Edge Reversal DP
+        ↓
+2925 → Advanced Tree DP
+```
+> **Golden Rule:** If a problem asks for the best answer for every **subtree** or the answer for a node depends on its **children**, think **Tree Dynamic Programming**.
